@@ -16,7 +16,7 @@
         <li>Po przyciśnięciu "Pokaż tylko ukryte", odkryje wszystkie ukryte komórki i ukryje resztę. Odkryta komórka powinna mieć ustawiony kolor tekstu na biały i prezentować się na czarnym tle. Hasło powinno zostać zresetowane oraz przycisk "Odkryj" powinien dalej działać poprawnie.</li>
         <li>Po przyciśnięciu "Usuń niewidoczne i ustaw w jednym rzędzie", ustawi wszystkie widoczne komórki w jednym rzędzie, tak aby ułożyły czytelne hasło oraz zablokuje resztę przycisków.</li>
     </ul>
-    <table>
+    <table id="myTable">
         <tbody>
         <tr>
             <td style="background-color: #e16800; color: #10e131">U</td>
@@ -77,9 +77,9 @@
     </table>
     <div class="result">
         <div>
-            <button>Odkryj</button>
-            <button>Pokaż tylko ukryte</button>
-            <button>Usuń niewidoczne i ustaw w jednym rzedzie</button>
+            <button onclick="myFunction()">Odkryj</button>
+            <button onclick="newFunc()">Pokaż tylko ukryte</button>
+            <button onclick="lastFunction()">Usuń niewidoczne i ustaw w jednym rzedzie</button>
         </div>
         <div>Sekretne hasło to: <span id="result" style="color: red"></span><div>
         </div>
