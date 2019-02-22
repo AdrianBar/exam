@@ -1,6 +1,5 @@
 import { Component, OnInit, Input, ViewChildren, ElementRef, AfterViewInit, QueryList } from '@angular/core';
-import { element } from '@angular/core/src/render3';
-import { TestBed } from '@angular/core/testing';
+
 
 @Component({
   selector: 'app-tree',
@@ -13,10 +12,11 @@ export class TreeComponent implements OnInit, AfterViewInit {
 
   @Input() element: [];
   @Input() hidden: boolean;
-  checked: boolean;
+  @Input() checked: boolean;
   constructor() {
     this.element = [];
     this.hidden = false;
+    this.checked = false;
   }
   ngOnInit() {
   }
@@ -29,8 +29,9 @@ export class TreeComponent implements OnInit, AfterViewInit {
   }
 
   afterClick() {
+    this.checked = !this.checked;
     for (let i = 0; i < this.test.toArray().length; i++) {
-    this.test.toArray()[i].nativeElement['checked'] = true;
+    this.test.toArray()[i].nativeElement['checked'] = this.checked;
     }
   }
 }
