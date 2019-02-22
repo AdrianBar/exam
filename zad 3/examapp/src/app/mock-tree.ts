@@ -1,4 +1,3 @@
-import { ILabel } from './interface.ILabel';
 export const TREE = [
     {
         label: 'A',

@@ -30,35 +30,50 @@ function newFunc() {
                 cell.style.color = "white";
                 cell.style.backgroundColor = "black";
             }
-            else 
-            {
+            else {
                 cell.style.color = "white";
-                cell.style.backgroundColor = "white";  
+                cell.style.backgroundColor = "white";
             }
         }
     }
 }
 
 function lastFunction() {
-    let table = document.getElementById("myTable");
-    let newtable;
-    let word = "";
-    for (let row of table.rows) {
+    let Maintable = document.getElementById("myTable");
+    let newtable = [];
+    for (let row of Maintable.rows) {
         for (let cell of row.cells) {
-            console.log(cell.style.color);
-            console.log(cell.style.backgroundColor);
             if (cell.style.color === cell.style.backgroundColor) {
-                cell.style.color = "white";
-                cell.style.backgroundColor = "black";
-                newtable.push(cell);
+                console.log(cell);
+                newtable.push(cell.innerText);
             }
-            else 
-            {
-                cell.hidden = true;
+            else {
             }
         }
     }
-    table.parentNode.removeChild(table);
-    console.log(newtable);
-    document.getElementById("myTable") = newtable;
+    while (Maintable.hasChildNodes()) {
+        Maintable.removeChild(Maintable.lastChild);
+    }
+
+    var myTableDiv = document.getElementById("myTable");
+
+    var table = document.createElement('TABLE');
+    var tableBody = document.createElement('TBODY');
+    table.appendChild(tableBody);
+
+    var tr = document.createElement('TR');
+    tableBody.appendChild(tr);
+
+    for (var j = 0; j < newtable.length; j++) {
+        var td = document.createElement('TD');
+        td.style.color = 'white';
+        td.style.backgroundColor = 'black';
+        td.appendChild(document.createTextNode(newtable[j]));
+        tr.appendChild(td);
+    }
+    myTableDiv.appendChild(table);
+    document.getElementById("first").disabled = true; 
+    document.getElementById("second").disabled = true; 
+
 }
+
