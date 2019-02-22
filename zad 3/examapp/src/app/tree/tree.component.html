@@ -3,7 +3,7 @@
     (click)="toggle()">{{element.label}}</label>
   <div [hidden]="hidden" class="test">
     <div *ngFor="let child of element.children">
-      <label><input type="checkbox" value="child.value">{{child.label}}</label>
+      <label><input #test type="checkbox" value="child.value">{{child.label}}</label>
     </div>
   </div>
 </div>
